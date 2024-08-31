@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+
+
+{% block content %}
+
+<form action="" method="GET" enctype="multipart/form-data">
+  {{ search_form.as_p }}
+  <button class="btn btn-primary" type="submit">Search</button>
+</form>
+
+{% if not tasks %}
+    <h2>No tasks</h2>
+{% else %}
+<div class="list-group">
+    {% for task in tasks %}
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <a href="/tasks/{{ task.pk }}"><h5 class="card-title">{{ task.title }}</h5></a>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.description }}</h6>
+        <p class="card-text">{{ task.category }}</p>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

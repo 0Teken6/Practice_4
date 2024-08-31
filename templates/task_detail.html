@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+
+{% block content %}
+{% load static %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ task.title }}</h5>
+      <p class="card-text">{{ task.description }}</p>
+      <h6 class="card-subtitle mb-2 text-body-secondary">Category: {{ task.category }}</h6>
+      <a href="/tasks/" class="card-link">Tasks</a>
+      <a href="/" class="card-link">Home</a>
+    </div>
+  </div>
+{% endblock %}
